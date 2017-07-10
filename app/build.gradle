@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.scott.testproject"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+}
+
+apt {
+    arguments {
+        eventBusIndex "com.scott.testproject.eventbus.MyEventBusIndex"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.google.com' }
+    }
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'android.arch.lifecycle:runtime:1.0.0-alpha1'
+    compile 'android.arch.lifecycle:extensions:1.0.0-alpha1'
+    compile 'android.arch.persistence.room:runtime:1.0.0-alpha1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.google.android.gms:play-services-plus:10.2.0'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-alpha1'
+
+    apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    compile 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+}

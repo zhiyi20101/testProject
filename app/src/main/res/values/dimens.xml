@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:override="true">
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="notification_large_icon_width" tools:override="true">
+        114dp
+    </dimen>
+    <dimen name="notification_large_icon_height" tools:override="true">
+        64dp
+    </dimen>
+    <!-- height of the content margin to accomodate for the header -->
+    <dimen name="notification_content_margin_top">6dp</dimen>
+
+    <!-- height of the content margin on the bottom -->
+    <dimen name="notification_content_margin_bottom">16dp</dimen>
+</resources>

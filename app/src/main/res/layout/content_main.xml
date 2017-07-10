@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/test_jobscheduler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试JobScheduler"/>
+        <Button
+            android:id="@+id/test_emoji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="测试emoji表情"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试Keystore"
+            android:textAllCaps="false"
+            android:onClick="startKeystoreActivity"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试WebView漏洞"
+            android:textAllCaps="false"
+            android:onClick="startWebViewActivity"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试EventBus"
+            android:textAllCaps="false"
+            android:onClick="startEevntBusActivity"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.scott.testproject.eventbus.Fragment1">
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行结果:"/>
+
+    <TextView
+        android:id="@+id/work_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tip"/>
+
+    <TextView
+        android:id="@+id/tip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/work_result"
+        android:text="执行结果2:"/>
+
+    <TextView
+        android:id="@+id/work_result2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/work_result"
+        android:layout_toRightOf="@+id/tip2"/>
+
+    <Button
+        android:id="@+id/work_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始工作线程"
+        android:layout_below="@+id/tip2"
+        android:onClick="startWorkThread"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
