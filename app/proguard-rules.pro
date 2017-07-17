@@ -64,4 +64,16 @@
   public static final android.os.Parcelable$Creator *;
 }
 
-#-keep class MyClass;                                                            # 保持自己定义的类不被混淆
+#okhttp
+-dontwarn com.squareup.okhttp.**
+-dontwarn com.squareup.okhttp.
+-keep class com.squareup.okhttp.{*;}
+-keep class com.zhy.http.okhttp.{*;}
+-keep interface com.squareup.okhttp.{*;}
+-dontwarn okio.*
+#gosn
+-keep class com.google.gson. {*;}
+-keep class com.google.gson.JsonObject { *; }                                                           # 保持自己定义的类不被混淆
+
+-keep class org.apache.http.{*;}
+

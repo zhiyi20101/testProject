@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".brokenkeyderivation.BrokenKeyDerivationActivity"/>
         <activity
             android:name=".SecondActivity"
             android:exported="true"
@@ -67,6 +68,14 @@
             android:name=".eventbus.EventBusActivity"
             android:label="@string/title_activity_event_bus"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".oom.OOMTestActivity"
+            android:label="@string/title_activity_oomtest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".encryptionAlgorithm.EncrypetionTestActivity"
+            android:label="@string/title_activity_aestest"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -19,10 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.scott.testproject.brokenkeyderivation.BrokenKeyDerivationActivity;
 import com.scott.testproject.emoji.EmojiActivity;
+import com.scott.testproject.encryptionAlgorithm.EncrypetionTestActivity;
 import com.scott.testproject.eventbus.EventBusActivity;
 import com.scott.testproject.jobscheduler.JobSchedulerActivity;
 import com.scott.testproject.keystore.KeystoreActivity;
+import com.scott.testproject.oom.OOMTestActivity;
 import com.scott.testproject.webviewLoophole.WebViewActivity;
 
 import org.apache.http.HttpEntity;
@@ -77,6 +80,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     public void startEevntBusActivity(View view){
         startActivity(new Intent(this, EventBusActivity.class));
+    }
+
+    public void startOOMActivity(View view){
+        startActivity(new Intent(this, OOMTestActivity.class));
+    }
+
+    public void startEncryptActivity(View view){
+        startActivity(new Intent(this, BrokenKeyDerivationActivity.class));
     }
 
     private void showNotification() {

@@ -37,7 +37,18 @@
             android:text="测试EventBus"
             android:textAllCaps="false"
             android:onClick="startEevntBusActivity"/>
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试oom"
+            android:textAllCaps="false"
+            android:onClick="startOOMActivity"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试加密"
+            android:textAllCaps="false"
+            android:onClick="startEncryptActivity"/>
     </LinearLayout>
 
 </LinearLayout>
