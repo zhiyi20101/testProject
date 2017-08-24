@@ -5,6 +5,15 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -17,6 +26,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RemoteViews;
 
 import com.scott.testproject.brokenkeyderivation.BrokenKeyDerivationActivity;
@@ -26,6 +36,7 @@ import com.scott.testproject.eventbus.EventBusActivity;
 import com.scott.testproject.jobscheduler.JobSchedulerActivity;
 import com.scott.testproject.keystore.KeystoreActivity;
 import com.scott.testproject.oom.OOMTestActivity;
+import com.scott.testproject.runtimepermission.RuntimePermissionActivity;
 import com.scott.testproject.webviewLoophole.WebViewActivity;
 
 import org.apache.http.HttpEntity;
@@ -47,6 +58,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.Hashtable;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -68,6 +81,43 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         findViewById(R.id.test_jobscheduler).setOnClickListener(this);
         findViewById(R.id.test_emoji).setOnClickListener(this);
+
+        ImageView iv = (ImageView)findViewById(R.id.image);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.touch);
+        iv.setImageBitmap(getRoundedCornerBitmap(bitmap));
+
+        HashMap hashMap = new HashMap();
+        hashMap.put(null,"");
+//        Hashtable hashtable = new Hashtable();
+//        hashtable.put(null,"");
+    }
+
+    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {
+        try {
+            Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                    bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(output);
+            final Paint paint = new Paint();
+            final Rect rect = new Rect(0, 0, bitmap.getWidth(),
+                    bitmap.getHeight());
+            final RectF rectF = new RectF(new Rect(0, 0, bitmap.getWidth(),
+                    bitmap.getHeight()));
+            final float roundPx = 24;
+            paint.setAntiAlias(true);
+            canvas.drawARGB(0, 0, 0, 0);
+            paint.setColor(Color.BLACK);
+            //drawRoundRect(0, rect.top, rect.right, rect.bottom, roundPx, roundPx, paint);
+            canvas.drawRoundRect(0, 0, rect.right, rect.bottom, roundPx, roundPx, paint);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+            final Rect src = new Rect(0, 0, bitmap.getWidth(),
+                    bitmap.getHeight());
+
+            canvas.drawBitmap(bitmap, src, rect, paint);
+            return output;
+        } catch (Exception e) {
+            return bitmap;
+        }
     }
 
     public void startKeystoreActivity(View view){
@@ -89,6 +139,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void startEncryptActivity(View view){
         startActivity(new Intent(this, BrokenKeyDerivationActivity.class));
     }
+
+    public void startRuntimePermissionActivity(View view){
+        startActivity(new Intent(this, RuntimePermissionActivity.class));
+    }
+
 
     private void showNotification() {
 //        Bitmap bigBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.icon);
