@@ -28,4 +28,6 @@
         <item>SHA</item>
     </array>
     <string name="title_activity_runtime_permission">RuntimePermissionActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_test_strict_mode">TestStrictModeActivity</string>
 </resources>
